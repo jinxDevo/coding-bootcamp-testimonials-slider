@@ -1,0 +1,178 @@
+@use "./screen-view" as *;
+@use "./center-item" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+$darkblue: hsl(240, 38%, 20%);
+$grayishblue: hsl(240, 18%, 77%);
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    // height: 90vh;
+    font-family: 'Inter', sans-serif;
+    @include flex-center();
+}
+
+img{
+    width: 100%;
+    vertical-align: middle;
+}
+
+
+.container{
+    width: 100%;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.201);
+    padding: 3rem .9rem;
+    @include desktop-view(){
+        padding: 3rem;
+        width:  auto;
+    }
+
+    background-image: url("./images/pattern-curve.svg");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 100% auto;
+
+    @include desktop-view(){
+        background-size: auto;
+    }
+}
+
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include desktop-view(){
+        flex-direction: row-reverse;
+    }
+}
+
+.head{
+    width: 100%;
+    padding: 24px;
+    @include desktop-view(){
+        width: auto;
+        padding: 48px;
+    }
+    @include flex-center();
+    
+    background-image: url("./images/pattern-bg.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    .slide-wrapper{
+        position: relative;
+
+        div{
+            width: 260px;
+            @include desktop-view(){
+                width: 460px;
+            }
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.32);
+            border-radius: 12px;
+            
+            .img-wrapper{
+                flex: 0 0 100%;
+                overflow: hidden;
+            }
+        }
+
+
+        .pagination{
+            max-width: 95px;
+            position: absolute;
+            bottom: 0;right: 50%;
+            transform: translate(50%,50%);
+            @include desktop-view(){
+                right: auto;
+            }
+            display: flex;
+            justify-content: space-between;
+            gap: 28px;
+            background-color: white;
+            padding: .6rem .9rem;
+            border-radius: 25px;
+            box-shadow: 15px 0px 35px 5px rgba(0, 0, 0, 0.32);
+            i{
+                opacity: 0.6;
+                cursor: pointer;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+
+
+.body{
+    padding: 34px 0;
+    z-index: 20;
+    position: relative;
+    margin-top: 28px;
+
+    .quotes{
+        position: absolute;
+        top:0;left:50%;
+        max-width: 90px;
+        transform: translateX(-50%);
+    }
+
+    .slide-wrapper{
+        z-index: 22;
+        max-width: 580px;
+        text-align: center;
+        transform: translateX(0);
+
+        @include desktop-view(){
+            text-align: left;
+            transform: translateX(22%);
+        }
+
+        display: flex;
+        overflow: hidden;
+
+        .text-wrapper{
+            flex: 0 0 100%;
+
+            >p{
+                font-size: 1.8rem;
+                font-weight: 300;
+                margin-bottom: 28px;
+            }
+
+            .user{
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                @include desktop-view(){
+                    gap: 8px;
+                    flex-direction: row;
+                }
+            }
+            
+            h1,h2{
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
+            h1{
+                font-weight: 700;
+            }
+            h2{
+                color: $grayishblue;
+            }
+        }
+
+    }
+}
